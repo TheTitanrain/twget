@@ -71,14 +71,14 @@ func main() {
 				argsFilename = dir + argsFilename + url.Str
 				println("Command to get file name: " + argsFilename)
 				filenameext := execute(argsFilename, "") // getting file name with ext
-				println("Filename with extantion: " + filenameext)
+				println("Filename with ext: " + filenameext)
 				filename := filenameext[0 : len(filenameext)-5]
 				println("Filename: " + filename)
 
 				argsEncode = dir + argsEncode + url.Str
 				println("Command to download: " + argsEncode)
-				execute(argsEncode, "")
 				println("Downloading...")
+				execute(argsEncode, "")
 
 				argsFFMPEG := dir + "/tools/ffmpeg.exe " +
 					"-y " +
@@ -89,13 +89,17 @@ func main() {
 					"-ac 1 " +
 					"file:" + idvideo.Str + ".mp3"
 				println("Command for FFMPEG: " + argsFFMPEG)
-				execute(argsFFMPEG, "")
 				println("Encoding...")
+				execute(argsFFMPEG, "")
 
 				argsMp3gain = dir + argsMp3gain
 				println("Command to MP3Gain: " + argsMp3gain) // normalize mp3 audio
-				execute(argsMp3gain, idvideo.Str+".mp3")
 				println("Normalizing...")
+				execute(argsMp3gain, idvideo.Str+".mp3")
+
+				oldFileName := idvideo.Str + ".mp3"
+				newFileName := filename + ".mp3"
+				os.Rename(oldFileName, newFileName)
 
 				fmt.Println("Done! Press Enter to exit!")
 				fmt.Scanln()
