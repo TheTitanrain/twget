@@ -1,6 +1,6 @@
-##### Program for download audio from twitch with parameters
+Program for download audio from twitch with parameters.
 
-**Configuration:**
+## Configuration:
 
 **config.yaml:**  
 baseUrl: "https://api.twitch.tv/helix/"  
@@ -14,7 +14,7 @@ argsMp3gain : "/tools/mp3gain.exe /r"
 userName: "stopgameru"  # twitch channel username  
 
 
-**Requirements:**  
+## Requirements:
 - youtube-dl
 - ffmpeg
 - mp3gain  
