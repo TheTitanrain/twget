@@ -12,3 +12,12 @@ argsFilename: "/tools/youtube-dl.exe -f bestaudio --get-filename -o %(title)s.%(
 argsEncode: "/tools/youtube-dl.exe -f bestaudio --external-downloader aria2c --keep-video -o %(title)s.%(ext)s "  
 argsMp3gain : "/tools/mp3gain.exe /r"  
 userName: "stopgameru"  # twitch channel username  
+
+
+**Requirements:**  
+- youtube-dl
+- ffmpeg
+- mp3gain  
+maybe:
+- ffprobe
+- aria2c
